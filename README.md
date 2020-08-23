@@ -1,6 +1,10 @@
 # BoaSpaceNavigator
-Space navigator maxscript implementation for 3ds max
+A Space Navigator maxscript implementation for 3ds max
 
 ## Installation
-- download .ms file and "dlls" folder to the same folder
-- execute the .ms script in 3ds max
+- Reinstall official driver and uncheck 3ds max plugins installation
+- download ".ms" file and "dlls" folder to the same folder
+- execute the ".ms" script in 3ds max
+
+## How it works
+Only supports perspective and free camera viewport modes.
