@@ -116,8 +116,8 @@ struct boaSpaceNavigatorStructDef
 				--This actually "fake" de mouseScrollWheel behavior becouse I didn't
 				--found yet a good way to hook up on it (still searching)
 
-				if -args.TransZ > 0 do (viewport.zoom(1.05)) --Values hardcoded may be ajusted
-				if -args.TransZ < 0 do (viewport.zoom(0.95)) --to each one preference. :$
+				if -args.TransZ > 300 do (viewport.zoom(1.05)) --Values hardcoded may be ajusted
+				if -args.TransZ < -300 do (viewport.zoom(0.95)) --to each one preference. :$
 									     
 
 				--Using all (of yours) excelent calculation, it is now possible to make it rotate
