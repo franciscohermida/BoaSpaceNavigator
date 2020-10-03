@@ -100,6 +100,37 @@ struct boaSpaceNavigatorStructDef
 				rotate tm ((eulerAngles -finalRotX 0 0) as quat)
 				viewport.setTM tm
 			)
+
+-- ******************************************************************************************************
+-- Thanks for your code Francisco Hermida. Consider include this contribution.
+
+-- ***********
+-- Rotation on orthographic mode
+-- This is still rough, I'll be working to emprove even more.
+
+			if viewType == #view_iso_user do
+			(
+				translate tm -finalTrans
+				viewport.setTm (tm)	--Just to set the same position of #view_persp_user
+				
+				--This actually "fake" de mouseScrollWheel behavior becouse I didn't
+				--found yet a good way to hook up on it (still searching)
+
+				if -args.TransZ > 300 do (viewport.zoom(1.05)) --Values hardcoded may be ajusted
+				if -args.TransZ < -300 do (viewport.zoom(0.95)) --to each one preference. :$
+									     
+
+				--Using all (of yours) excelent calculation, it is now possible to make it rotate
+				--in the orthographic viewport.
+
+				viewport.rotate ((eulerAngles -finalRotX 0 0) as quat)
+				viewport.rotate (quat finalRotZ tm.row3)
+				completeredraw()
+
+				--By now I'm adjusting the speed by hand, a dialog will be made to take care of it, soon. :P
+			)
+-- ******************************************************************************************************
+
 		)
 	),
 	
